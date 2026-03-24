@@ -1,0 +1,11 @@
+add_executable(compile_time_quickstart compile_time_quickstart.cpp)
+target_link_libraries(compile_time_quickstart PRIVATE ctl::ctl)
+target_compile_features(compile_time_quickstart PRIVATE cxx_std_23)
+
+add_executable(string_access string_access.cpp)
+target_link_libraries(string_access PRIVATE ctl::ctl)
+target_compile_features(string_access PRIVATE cxx_std_23)
+
+add_executable(runtime_escape_hatch runtime_escape_hatch.cpp)
+target_link_libraries(runtime_escape_hatch PRIVATE ctl::ctl)
+target_compile_features(runtime_escape_hatch PRIVATE cxx_std_23)

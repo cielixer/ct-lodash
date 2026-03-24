@@ -1,0 +1,22 @@
+# Align clangd with the pixi-managed toolchain so C++23 features,
+# Boost headers, and ctl includes resolve correctly.
+CompileFlags:
+  Compiler: .pixi/envs/default/bin/arm64-apple-darwin20.0.0-clang++
+  Add:
+    # Force C++23 standard (redundant safety — compile_commands already has it)
+    - -std=c++23
+    # Pixi libc++ with C++23 support (must come BEFORE system headers)
+    - -isystem
+    - .pixi/envs/default/include/c++/v1
+    # Pixi clang builtins
+    - -isystem
+    - .pixi/envs/default/lib/clang/19/include
+    # Boost and other pixi packages
+    - -isystem
+    - .pixi/envs/default/include
+  Remove:
+    # Remove cross-compilation flags that confuse clangd
+    - -arch
+    - arm64
+    # Remove the existing -std flag to avoid duplicate (we add -std=c++23 above)
+    - -std=*

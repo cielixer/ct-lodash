@@ -39,3 +39,13 @@
 
 # debug information files
 *.dwo
+
+# Local workspace artifacts
+.cache/
+.pixi/
+.sisyphus/
+build/
+build-debug/
+build-testing-off/
+
+compile_commands.json

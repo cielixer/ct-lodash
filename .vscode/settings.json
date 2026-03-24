@@ -1,0 +1,4 @@
+{
+  // Disable MS C/C++ IntelliSense — clangd handles diagnostics.
+  "C_Cpp.intelliSenseEngine": "disabled"
+}
